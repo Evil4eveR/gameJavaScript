@@ -11,6 +11,7 @@ const game_mode_selection = document.getElementById('Modes');
 const deal_3_cards_button = document.getElementById('deal_3_cards');
 const start_game = document.getElementById('start_game');
 const difficulty_selection = document.getElementById('Difficulties');
+const timeUP = document.getElementById('counter');
 let deck = new Deck();
 
 export function handleCardClick(evt){
@@ -29,7 +30,26 @@ export function handleplayerbuttonclick(e1){
     var index = e1.target.id;
     players[index].play();
     console.log(players[index]);
+    countdown();
 }
+
+
+export function countdown(e1){
+    //i just created that score to see if is showing the score
+    var score =10;
+    var timeleft = 0;
+    var index = e1.target.id;
+    var downloadTimer = setInterval(function(){
+        if(timeleft >= 10){
+            clearInterval(downloadTimer);
+            players[index].score =+ score;
+            document.getElementById("score").innerHTML = "the score of " + players[index].name + ": " + players[index].score; 
+        }
+  document.getElementById("counter").innerHTML = 10 - timeleft;
+  timeleft++;
+  }, 1000);
+  }
+
 function handleDifficulty(){
 
 
@@ -148,4 +168,5 @@ function handleStartGame(){
 game_mode_selection.addEventListener('change',handleGameMode);
 difficulty_selection.addEventListener('change',handleDifficulty);
 noplayersselection.addEventListener('change',handlenumberofplayers);
+start_game.addEventListener('click',handleStartGame);
 start_game.addEventListener('click',handleStartGame);

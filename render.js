@@ -1,4 +1,4 @@
-import {handleCardClick,handleplayerbuttonclick} from './index.js';
+import {countdown, handleCardClick,handleplayerbuttonclick} from './index.js';
 import {Deck} from './deck.js';
 
 export function renderDeck(deck)
@@ -71,8 +71,9 @@ export function render_players_buttons(players){
     button.id = i;
     button.className = 'PlayerButton';
     button.addEventListener('click',handleplayerbuttonclick);
+    button.addEventListener('click',countdown);
     div.appendChild(button);
-
+    start_game.disabled=true;
   }
 }
 export function render_win_message(){

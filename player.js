@@ -38,6 +38,6 @@ export class Player{
             console.log( this.name +'has score : '+this.score);    
         }
     }
-    }
+}
    
 //}
