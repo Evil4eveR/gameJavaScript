@@ -30,7 +30,9 @@ export function handleplayerbuttonclick(e1){
     var index = e1.target.id;
     players[index].play();
     console.log(players[index]);
-    countdown();
+    //countdown();
+    e1.target.disabled = false;
+
 }
 
 
@@ -116,6 +118,7 @@ export function remove_set_from_table(){
     }
     render_3_cards(deck);
 }
+
 export function evaluate(id){
     console.log('here evaluate');
     const table_cards = document.querySelectorAll('#unselected');
@@ -143,7 +146,7 @@ export function evaluate(id){
         
 
 
-function is_Set(selectedcards){
+export function is_Set(selectedcards){
 
 if(selectedcards[0].className === selectedcards[1].className && selectedcards[1].className === selectedcards[2].className){
     return true;

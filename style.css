@@ -1,3 +1,17 @@
+#parameter
+{
+    background-color: rgba(111, 53, 177, 0.514);
+}
+#platform{
+    background-color: rgba(143, 46, 135, 0.644);
+}
+nav{
+    background-color: rgba(102, 29, 101, 0.3);
+}
+body{
+    background-image: url('./cards/bg.jpg');
+    background-size: cover;
+}
 h1{
     font-family: Verdana;
     font-weight: bold;
