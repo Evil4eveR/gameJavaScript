@@ -65,8 +65,9 @@ export function render_players_buttons(players){
   let div = document.getElementById('players_buttons');
 
   for(let i=0;i<players.length;i++){
-
+    //var PlayerLogo= document.createElement('div');
     var button = document.createElement('BUTTON');
+    //const image= "./cards/player.png";
     button.innerHTML = players[i].name;
     button.id = i;
     button.className = 'PlayerButton';
