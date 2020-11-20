@@ -1,0 +1,4 @@
+- Deal 3 cards  button 
+- start normal with "SetPlayer" (single player)
+- render.js 96  and index.js 103
+

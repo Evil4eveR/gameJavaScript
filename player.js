@@ -1,8 +1,8 @@
 
-import {handleCardClick,is_Set,remove_set_from_table} from "./index.js";
-import {render_lose_message,render_win_message} from "./render.js";
+import {handleCardClick,evaluate} from "./index.js";
 
 export class Player{
+
     constructor(name) {
         this.score = 0;
         this.turn = false;
@@ -16,41 +16,30 @@ export class Player{
     make_action(){
         this.turn = true;
     }
-    play (){
+    play (index){
+        const table_cards = document.querySelectorAll('#unselected');
+        for(let i = 0 ;i<table_cards.length;i++){
 
+            table_cards[i].addEventListener('click',handleCardClick);
+        }
         this.turn = true;
+        let playerbutton = document.getElementById(index);
         var timeleft = 10;
+        playerbutton.disabled = true;
         var downloadTimer = setInterval(function(){
         const table_cards = document.querySelectorAll('#unselected');
         const selectedcards = document.querySelectorAll('#selected');
-        if(timeleft <= 0 || selectedcards.length===3){
+
+        if(timeleft === 0 || selectedcards.length === 3){
             this.turn = false;
             clearInterval(downloadTimer);
-            for(let i=0;i<table_cards.length;i++){
-    
-                table_cards[i].removeEventListener('click',handleCardClick);
-            }
-            //evaluate the selected cards
-            if(is_Set(selectedcards)){
-                render_win_message();
-                remove_set_from_table(); 
-                this.score=this.score+1;   
-                console.log( this.name +'has score : '+this.score);    
-            }
-            else{
-                render_lose_message();
-                this.score=this.score-1;   
-                console.log( this.name +'has score : '+this.score);    
-            }
-            }
-        document.getElementById("counter").innerText = 10 - timeleft;
+            evaluate(index);
+            playerbutton.disabled = false;
+        }
+        document.getElementById("counter").innerText = '10 Seconds Counter : ' + (10 - timeleft);
         timeleft -= 1;
 
         }, 1000);
-        
-        
-        //console.log(selectedcards);
-        // while(selectedcards.length!=2){
-        //     this.play();}
+   
     }
 }

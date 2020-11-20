@@ -37,7 +37,7 @@ else{
 for ( let s = 0; s < shapes.length; s++ ) {
 		for ( let c = 0; c < colors.length; c++ ) {
 			for ( let n = 0; n < numbers.length; n++ ) {	
-				   this.deck.push(card(shapes[s], colors[c],numbers[n],'solid'));
+				   this.deck.push(card(shapes[s], colors[c],numbers[n],'solid','g-card'));
 
 }
 }
