@@ -38,125 +38,103 @@
       </a>
       <div class="mx-auto txt h1 text-light">SET GAME</div>
     </nav>
-    <h2></h2>
-    <div id="counter"></div>
-    <div id="players_buttons" class="row"></div>
-    <div class="l3ab"></div>
-    <div class="d-flex justify-content-center align-items-center" style="height:500px">
-      <div class="container">
+    <div class="row mb-5">
+      <div class="col-sm-12 col-md-4" id="starting page">
+        <div class="text-light">
+          <div class="form-group row my-2">
+            <div class="col-3">
+              <label for="Difficulties">Choose Difficulty</label>
+            </div>
+            <div class="col-9">
+              <select
+                name="Difficulties"
+                id="Difficulties"
+                class="form-control"
+              >
+                <option value="Advanced" selected="selected">Advanced</option>
+                <option value="Starter">Starter</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <div class="col-3">
+              <label for="NumberOfPlayers">Select Number of players</label>
+            </div>
+            <div class="col-9">
+              <select id="nofplayersselection" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2" id="noplayersdiv"></div>
+          <div class="form-group row my-2">
+            <div class="col-3">
+              <label>Player 1 : </label>
+            </div>
+            <div class="col-9">
+              <input
+                type="text"
+                id="Player"
+                value="Player1"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div class="form-group row my-2">
+            <div class="col-3">
+              <label for="GameMode">Choose game Mode</label>
+            </div>
+            <div class="col-9">
+              <select name="Modes" id="Modes" class="form-control">
+                <option value="Practice" selected="selected">Practice</option>
+                <option value="Competitive">Competitive</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row my-2" id="miscellaneous">
+            <button class="col btn btn-primary m-1" id="show_set">
+              Show Set
+            </button>
+            <button class="col btn btn-primary m-1" id="is_set_exist">
+              Is Set Exist
+            </button>
+            <button class="col btn btn-primary m-1" id="deal_3_cards">
+              Deal 3 cards
+            </button>
+            <button class="col btn btn-success m-1" id="start_game">
+              Start
+            </button>
+          </div>
+          <div class="form-group row my-2" id="noplayersdropdown"></div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-8 mx-auto" id="game page">
+        <div class="text-center">
+          <div class="mx-auto" style="width: 400px">
+            <div class="alert bg-purple d-none" id="message_container"></div>
+          </div>
+          <div class="mx-auto" style="width: 400px">
+            <div class="alert bg-purple d-none" id="no_remaining_cards"></div>
+          </div>
+        </div>
+        <div class= "alert-success " id="winner"></div>
+        <div class="alert-success " id="score"></div>
+        <table id="deck" class="deck"></table>
+        <div class="row text-center" id="players_buttons"></div>
         <div class="row">
-          <div id="parameter" class="col-sm-12 col-md-4 mr-5">
-            <form class="text-light py-4">
-              <div class="row py-2">
-                <div class="col-sm-6 py-2">
-                  <label for="Difficulties">Choose Difficulty</label>
-                  <div>
-                    <div class="form-check" id="Difficulties">
-                      <input
-                        type="radio"
-                        class="form-check-input"
-                        value="Advanced"
-                        id="Advanced"
-                        name="g-dif"
-                        checked
-                      />
-                      <label class="form-check-label" for="Advanced">
-                        Advanced
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        type="radio"
-                        class="form-check-input"
-                        value="Starter"
-                        name="g-dif"
-                        id="Starter"
-                      />
-                      <label class="form-check-label" for="Starter">Starter</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 py-2">
-                  <label for="GameMode">Choose game Mode</label>
-                  <div>
-                    <div class="form-check" id="Modes">
-                      <input
-                        type="radio"
-                        class="form-check-input"
-                        value="Practice"
-                        selected="selected"
-                        id="Practice"
-                        name="g-mode"
-                        checked
-                      />
-                      <label class="form-check-label" for="Practice">
-                        Practice
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        type="radio"
-                        class="form-check-input"
-                        value="Competitive"
-                        id="Competitive"
-                        name="g-mode"
-                      />
-                      <label class="form-check-label" for="Competitive">
-                        Competitive
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <label for="NumberOfPlayers" form-label
-                  >Select Number of players</label
-                >
-                <select id="nofplayersselection" class="form-control">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </div>
-              <div id="noplayersdiv"></div>
-              <div class="row">
-                <div class="col p-0 mx-1">
-                  <button class="btn btn-block btn-primary m-1" id="show_set">
-                    Show Set
-                  </button>
-                </div>
-                <div class="col p-0 mx-1">
-                  <button class="btn btn-block btn-primary m-1" id="is_set_exist">
-                    Is Set Exist
-                  </button>
-                </div>
-                <div class="col p-0 mx-1">
-                  <button class="btn btn-block btn-primary m-1" id="deal_3_cards">
-                    Deal 3 cards
-                  </button>
-                </div>
-                <div class="col p-0 mx-1">
-                  <button class="btn btn-block btn-primary m-1" id="start_game">
-                    Start Game
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div id="platform" class="col-sm-12 col-md-6 ml-4">
-            <div id="noplayersdropdown"></div>
-            <div id="message_container"></div>
-            <div id="no_remaining_cards"></div>
-            <div id="score"></div>
-            <table id="deck" class="deck d-none"></table>
-          </div>
+          <div class="col bg-purple-score" id="counter"></div>
+          <div class="col bg-purple-score" id="players scores"></div>
+          <div class="col" id="is_set_div"></div>
+          <div class="col" id="show_set_div"></div>
         </div>
       </div>
     </div>
@@ -164,6 +142,6 @@
     <footer class="text-center text-capitalize fixed-bottom p-3">
       &copy; 2020 - all rights reserver
     </footer>
-    <script src="./index.js" type="module"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
